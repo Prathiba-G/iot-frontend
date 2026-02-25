@@ -1,0 +1,36 @@
+.card {
+  background: linear-gradient(135deg, rgba(0, 123, 255, 0.06) 0%, rgba(0, 0, 0, 0.15) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-xl);
+  padding: var(--space-2xl);
+  transition: all var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+  will-change: transform, filter;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(0, 123, 255, 0.1) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+  pointer-events: none;
+}
+
+.card:hover {
+  border-color: rgba(0, 123, 255, 0.5);
+  background: linear-gradient(135deg, rgba(0, 123, 255, 0.12) 0%, rgba(0, 0, 0, 0.2) 100%);
+  box-shadow:
+    0 8px 32px rgba(0, 123, 255, 0.15),
+    inset 0 0 32px rgba(0, 123, 255, 0.05);
+  transform: translateY(-6px) scale(1.02);
+}
+
+.card:hover::before {
+  opacity: 1;
+}

@@ -179,11 +179,8 @@
 .overlay {
   position: fixed;
   inset: 0;
-  background: rgba(21, 19, 19, 0.95);
+  background: rgba(21, 19, 19, 0.92);
   z-index: 998;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.3s ease;
 }
 
 .panel {
@@ -193,33 +190,23 @@
   height: 100vh;
   background: #151313;
   z-index: 999;
+
   padding: 100px 24px 40px;
   overflow-y: auto;
 
-  opacity: 0;
-  visibility: hidden;
-  transform: translateX(100%);
-  transition: all 0.35s ease;
-}
-.panel.open {
-  opacity: 1;
-  visibility: visible;
-  transform: translateX(0);
-}
-
-.overlay.open {
-  opacity: 1;
-  visibility: visible;
+  display: flex;
+  flex-direction: column;
 }
 
 .panelNav {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .panelLink {
   display: block;
-  padding: 22px 0;
+  padding: 24px 0;
   color: #FFFFFF;
   font-size: 1.2rem;
   font-weight: 600;
@@ -235,30 +222,25 @@
 
 .panelLink[data-active="true"] {
   color: #FFEB3B;
-}
-
-.panelLink[data-active="true"] {
-  color: #FFFFFF;
-  border-bottom-color: var(--accent-blue);
+  border-bottom-color: #0FC0FC;
 }
 
 .panelCta {
-  margin-top: var(--space-lg);
-  padding: var(--space-md) var(--space-lg);
-  background: var(--accent-blue);
-  color: #0A0A0A;
-  font-size: 0.9375rem;
-  font-weight: 600;
+  margin-top: 32px;
+  padding: 16px 24px;
+  background: #0FC0FC;
+  color: #151313;
+  font-size: 1rem;
+  font-weight: 700;
   text-decoration: none;
   text-align: center;
-  border: none;
   border-radius: var(--radius-md);
-  transition: all var(--transition-fast);
+  transition: all 0.25s ease;
 }
 
 .panelCta:hover {
-  opacity: 0.92;
-  box-shadow: 0 0 20px rgba(0, 123, 255, 0.4);
+  background: #FFEB3B;
+  color: #151313;
 }
 
 @media (max-width: 768px) {
@@ -284,17 +266,8 @@
     display: flex;
   }
 
-  .overlay,
   .panel {
-    display: block;
-  }
-
-  .overlay {
-    top: 70px;
-  }
-
-  .panel {
-    padding-top: calc(70px + var(--space-xl));
+    padding-top: 90px;
   }
 }
 
@@ -312,11 +285,7 @@
     height: 34px;
   }
 
-  .overlay {
-    top: 64px;
-  }
-
   .panel {
-    padding-top: calc(64px + var(--space-xl));
+    padding-top: 84px;
   }
 }

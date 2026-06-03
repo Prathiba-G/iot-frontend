@@ -177,28 +177,39 @@
 }
 
 .overlay {
-  display: none;
   position: fixed;
   inset: 0;
-  top: 80px;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(4px);
-  z-index: 98;
+  background: rgba(21, 19, 19, 0.95);
+  z-index: 998;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
 }
 
 .panel {
-  display: none;
   position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  width: min(320px, 85vw);
-  background: rgba(10, 10, 10, 0.95);
-  backdrop-filter: blur(12px);
-  border-left: 1px solid rgba(255, 255, 255, 0.08);
-  z-index: 99;
-  padding: var(--space-2xl) var(--space-xl);
-  padding-top: calc(64px + var(--space-xl));
+  inset: 0;
+  width: 100%;
+  height: 100vh;
+  background: #151313;
+  z-index: 999;
+  padding: 100px 24px 40px;
+  overflow-y: auto;
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(100%);
+  transition: all 0.35s ease;
+}
+.panel.open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+}
+
+.overlay.open {
+  opacity: 1;
+  visibility: visible;
 }
 
 .panelNav {
